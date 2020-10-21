@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<!-- 指定驱动jar包的路径 -->
+	<classPathEntry location="D:/JAVA tools/RepMeaven/mysql/mysql-connector-java/5.1.47/mysql-connector-java-5.1.47.jar" ></classPathEntry>
+	
+	<context id="context1">
+		<commentGenerator>
+			<!--去除自动生成注释  -->
+			<property name="suppressAllComments" value="true"></property>
+		</commentGenerator>
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/ddfinance"
+			userId="root" password="root" />
+		<!--生成对应的实体类  -->	
+		<javaModelGenerator targetPackage="com.zyc.api.model"
+			targetProject="src/main/java" />
+<!--	生成xml文件	-->
+		<sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources" />
+<!--生成mapper接口-->
+<!--		<javaClientGenerator targetPackage="com.zyc.api.mapper"-->
+<!--			targetProject="src/main/java" type="XMLMAPPER" />-->
+<!--		<table schema="" tableName="account" enableCountByExample="false"-->
+<!--			enableUpdateByExample="false" enableDeleteByExample="false"-->
+<!--			enableSelectByExample="false" selectByExampleQueryId="false">-->
+<!--		</table>-->
+<!--		<table schema="" tableName="address" enableCountByExample="false"-->
+<!--			   enableUpdateByExample="false" enableDeleteByExample="false"-->
+<!--			   enableSelectByExample="false" selectByExampleQueryId="false">-->
+<!--		</table>-->
+<!--		<table schema="" tableName="buy_car" enableCountByExample="false"-->
+<!--			   enableUpdateByExample="false" enableDeleteByExample="false"-->
+<!--			   enableSelectByExample="false" selectByExampleQueryId="false">-->
+<!--		</table>-->
+<!--		<table schema="" tableName="evaluate" enableCountByExample="false"-->
+<!--			   enableUpdateByExample="false" enableDeleteByExample="false"-->
+<!--			   enableSelectByExample="false" selectByExampleQueryId="false">-->
+<!--		</table>-->
+<!--		<table schema="" tableName="goods" enableCountByExample="false"-->
+<!--			   enableUpdateByExample="false" enableDeleteByExample="false"-->
+<!--			   enableSelectByExample="false" selectByExampleQueryId="false">-->
+<!--		</table>-->
+<!--		<table schema="" tableName="order" enableCountByExample="false"-->
+<!--			   enableUpdateByExample="false" enableDeleteByExample="false"-->
+<!--			   enableSelectByExample="false" selectByExampleQueryId="false">-->
+<!--		</table>-->
+<!--		<table schema="" tableName="shop" enableCountByExample="false"-->
+<!--			   enableUpdateByExample="false" enableDeleteByExample="false"-->
+<!--			   enableSelectByExample="false" selectByExampleQueryId="false">-->
+<!--		</table>-->
+<!--		<table schema="" tableName="verify_code" enableCountByExample="false"-->
+<!--			   enableUpdateByExample="false" enableDeleteByExample="false"-->
+<!--			   enableSelectByExample="false" selectByExampleQueryId="false">-->
+<!--		</table>-->
+		<table schema="" tableName="teacher" enableCountByExample="false"
+			   enableUpdateByExample="false" enableDeleteByExample="false"
+			   enableSelectByExample="false" selectByExampleQueryId="false">
+		</table>
+	</context>
+</generatorConfiguration>

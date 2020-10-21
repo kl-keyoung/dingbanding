@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zyc.api.mapper.ShopMapper">
+  <resultMap id="BaseResultMap" type="com.zyc.api.model.Shop">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="shop_name" jdbcType="VARCHAR" property="shopName" />
+    <result column="boss_name" jdbcType="VARCHAR" property="bossName" />
+    <result column="shop_address" jdbcType="VARCHAR" property="shopAddress" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="score" jdbcType="DOUBLE" property="score" />
+    <result column="shop_grade" jdbcType="VARCHAR" property="shopGrade" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, shop_name, boss_name, shop_address, status, score, shop_grade
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from shop
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from shop
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zyc.api.model.Shop">
+    insert into shop (id, shop_name, boss_name, 
+      shop_address, status, score, 
+      shop_grade)
+    values (#{id,jdbcType=INTEGER}, #{shopName,jdbcType=VARCHAR}, #{bossName,jdbcType=VARCHAR}, 
+      #{shopAddress,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{score,jdbcType=DOUBLE}, 
+      #{shopGrade,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zyc.api.model.Shop">
+    insert into shop
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="shopName != null">
+        shop_name,
+      </if>
+      <if test="bossName != null">
+        boss_name,
+      </if>
+      <if test="shopAddress != null">
+        shop_address,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="score != null">
+        score,
+      </if>
+      <if test="shopGrade != null">
+        shop_grade,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="shopName != null">
+        #{shopName,jdbcType=VARCHAR},
+      </if>
+      <if test="bossName != null">
+        #{bossName,jdbcType=VARCHAR},
+      </if>
+      <if test="shopAddress != null">
+        #{shopAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="score != null">
+        #{score,jdbcType=DOUBLE},
+      </if>
+      <if test="shopGrade != null">
+        #{shopGrade,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zyc.api.model.Shop">
+    update shop
+    <set>
+      <if test="shopName != null">
+        shop_name = #{shopName,jdbcType=VARCHAR},
+      </if>
+      <if test="bossName != null">
+        boss_name = #{bossName,jdbcType=VARCHAR},
+      </if>
+      <if test="shopAddress != null">
+        shop_address = #{shopAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="score != null">
+        score = #{score,jdbcType=DOUBLE},
+      </if>
+      <if test="shopGrade != null">
+        shop_grade = #{shopGrade,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zyc.api.model.Shop">
+    update shop
+    set shop_name = #{shopName,jdbcType=VARCHAR},
+      boss_name = #{bossName,jdbcType=VARCHAR},
+      shop_address = #{shopAddress,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      score = #{score,jdbcType=DOUBLE},
+      shop_grade = #{shopGrade,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
